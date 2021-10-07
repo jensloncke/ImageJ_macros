@@ -16,12 +16,13 @@
 run("Clear Results");
 roiManager("reset");
 open(Time_series);
-measurement_title = getTitle();
-print(measurement_title);
+measurement_title_380 = getTitle();
+measurement_title_340 = replace(measurement_title_380, "C=1", "C=0");
 open(mCherry);
 mCherry_title = getTitle();
 File.makeDirectory(Folder_results+"/ROIs/");
 File.makeDirectory(Folder_results+"/Multi_measure/");
+
  
 // Subtract background
 window_titles = getList("image.titles");
@@ -53,9 +54,13 @@ waitForUser("Please adapt ROIs if necessary. When finished press OK.");
 roiManager("deselect");
 roiManager("Save", Folder_results+"/ROIs/"+mCherry_title+".zip");
 run("Set Measurements...", "mean display redirect=None decimal=3");
-selectWindow(measurement_title);
+selectWindow(measurement_title_380);
 roiManager("multi measure")
-saveAs("Results", Folder_results+"/Multi_measure/"+measurement_title+".csv");
+saveAs("Results", Folder_results+"/Multi_measure/"+measurement_title_380+"_380.csv");
+run("Clear Results");
+selectWindow(measurement_title_340);
+roiManager("multi measure")
+saveAs("Results", Folder_results+"/Multi_measure/"+measurement_title_340+"_340.csv");
 roiManager("reset");
 close("*");
 selectWindow("Results"); 
