@@ -27,7 +27,7 @@ File.makeDirectory(Folder_results+"/Multi_measure/");
 window_titles = getList("image.titles");
 for ( i = 0; i < window_titles.length; i++ ) {
 	selectWindow(window_titles[i]);
-	run("Subtract Background...", "rolling=100 stack");
+	run("Subtract Background...", "rolling=BG_rolling_ball_radius stack");
 }
 
 // Find ROIs
