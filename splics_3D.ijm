@@ -73,11 +73,9 @@ function process_cell(i) {
 	setOption("BlackBackground", false);
 	run("Convert to Mask");
 	run("Watershed");
-	
 	run("Analyze Particles...", "  summarize");
 	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+".csv");
-	selectWindow(substack);
-	setAutoThreshold("Otsu dark");
+	roiManager("Select", i);
 	run("Voxel Counter");
 	waitForUser("Results OK?");
 	selectWindow(title);
