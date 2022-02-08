@@ -1,6 +1,5 @@
 // @File (style = "open") stack
 // @File (style = "directory") Folder_results
-// @int Number_of_channels
 
 // This program computes ER-mitochondrial contact parameters based on SPLICS
 // signal.
@@ -13,7 +12,6 @@
 
 // Open files and create directories
 open(stack);
-if (Number_of_channels > 1) {run("Split Channels")};
 File.makeDirectory(Folder_results+"/ROIs/");
 File.makeDirectory(Folder_results+"/Measure/");
 title = getTitle();
@@ -24,10 +22,27 @@ waitForUser("Please define cell ROIs and press 't'. When finished press OK.");
 roiManager("Save", Folder_results+"/ROIs/"+title+".zip");
 
 nROIs = roiManager("count");
-
-for ( i = 0; i < nROIs; i++) {
-	process_cell(i);
+window_titles = getList("image.titles");
+if (window_titles.length > 1) {
+	run("Split Channels");
+	for ( w = 0; w < window_titles.length; w++ ) {
+		selectWindow(window_titles[w]);
+	
+		analyze_channel(w);	
+	}
+} else {
+	for ( i = 0; i < nROIs; i++) {
+			process_cell(i);
+		}	
 }
+
+
+function analyze_channel(w) {
+	for ( i = 0; i < nROIs; i++) {
+			process_cell(i);
+		}
+}
+
 
 function process_cell(i) {
 	// Let user define slice range
@@ -58,12 +73,20 @@ function process_cell(i) {
 	setOption("BlackBackground", false);
 	run("Convert to Mask");
 	run("Watershed");
+	
 	run("Analyze Particles...", "  summarize");
 	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+".csv");
+	selectWindow(substack);
+	setAutoThreshold("Otsu dark");
 	run("Voxel Counter");
 	waitForUser("Results OK?");
 	selectWindow(title);
 	close("\\Others");
+	selectWindow("Results"); 
+	run("Close");
+	selectWindow(title+"_cell"+i+".csv");
+	run("Close");
+
 }
 
 // Close everything
