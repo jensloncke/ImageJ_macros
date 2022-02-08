@@ -75,7 +75,8 @@ function process_cell(i) {
 	run("Watershed");
 	run("Analyze Particles...", "  summarize");
 	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+".csv");
-	roiManager("Select", i);
+	selectWindow(substack);
+	setAutoThreshold("Otsu dark");
 	run("Voxel Counter");
 	waitForUser("Results OK?");
 	selectWindow(title);
