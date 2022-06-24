@@ -42,13 +42,15 @@ run("Duplicate...", " ");
 setOption("ScaleConversions", true);
 run("8-bit");
 run("Despeckle");
-run("Bandpass Filter...", "filter_large=40 filter_small=3 suppress=None tolerance=5 autoscale saturate");
-run("Gaussian Blur...", "sigma=4");
-setAutoThreshold("Triangle dark");
+run("Sharpen");
+run("Sharpen");
+run("Gaussian Blur...", "sigma=2");
+setAutoThreshold("Huang dark");
 setOption("BlackBackground", true);
 run("Convert to Mask");
 run("Fill Holes");
-run("Analyze Particles...", "size=200-Infinity exclude add");
+run("Watershed");
+run("Analyze Particles...", "size=200-Infinity add");
 
 // Let user do quality control of ROIs
 setTool("freehand");
