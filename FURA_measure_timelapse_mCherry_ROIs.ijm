@@ -35,16 +35,18 @@ for ( i = 0; i < window_titles.length; i++ ) {
 selectWindow(mCherry_title);
 run("Duplicate...", " ");
 setOption("ScaleConversions", true);
+setOption("ScaleConversions", true);
 run("8-bit");
-run("Bandpass Filter...", "filter_large=40 filter_small=3 suppress=None tolerance=5 autoscale saturate");
-run("Convolve...", "text1=[-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 -24 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n] normalize");
-setAutoThreshold("Triangle dark");
+run("Despeckle");
+run("Sharpen");
+run("Sharpen");
+run("Gaussian Blur...", "sigma=2");
+setAutoThreshold("Huang dark");
 setOption("BlackBackground", true);
 run("Convert to Mask");
-run("Erode");
 run("Fill Holes");
 run("Watershed");
-run("Analyze Particles...", "size=50-Infinity exclude add");
+run("Analyze Particles...", "size=200-Infinity add");
 
 // Let user do quality control of ROIs
 setTool("freehand");
