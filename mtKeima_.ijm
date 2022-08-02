@@ -84,7 +84,7 @@ function process_cell(i) {
 	setOption("BlackBackground", false);
 	run("Convert to Mask");
 	run("Watershed");
-	run("Analyze Particles...", "size=0-30 summarize");
+	run("Analyze Particles...", "summarize");
 	saveAs("Results", Folder_results+"/Counts/"+green+"_Mean"+i+".csv");
 	run("Close");
 }
