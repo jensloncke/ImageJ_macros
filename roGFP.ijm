@@ -28,8 +28,8 @@ for ( i = 0; i < window_titles.length; i++ ) {
 }
 
 // Find ROIs
-run("Calculator Plus", "i1=[oxidized] i2=[reduced] operation=[Add: i2 = (i1+i2) x k1 + k2] k1=10 k2=0 create");
-run("Duplicate...", " ");
+imageCalculator("Add create stack", oxidized, reduced);
+run("Z Project...", "projection=[Sum Slices]");
 setOption("ScaleConversions", true);
 run("8-bit");
 run("Gaussian Blur...", "sigma=2 stack");
