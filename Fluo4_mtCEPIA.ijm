@@ -36,15 +36,10 @@ for ( i = 0; i < window_titles.length; i++ ) {
 
 // Find ROIs
 selectWindow(F4_title);
-setSlice(nSlices());
-run("Calibrate...", "function=None");
-run("Duplicate...", " ");
+run("Duplicate...", "duplicate");
+run("Z Project...", "projection=[Sum Slices]");
 setOption("ScaleConversions", true);
 run("8-bit");
-run("Despeckle");
-run("Sharpen");
-run("Sharpen");
-run("Gaussian Blur...", "sigma=2");
 setAutoThreshold("Huang dark");
 setOption("BlackBackground", true);
 run("Convert to Mask");
@@ -60,6 +55,8 @@ waitForUser("Please adapt ROIs if necessary. When finished press OK.");
 roiManager("deselect");
 run("Set Measurements...", "mean display redirect=None decimal=3");
 selectWindow(MT_title);
+endslice = nSlices()
+setSlice(endslice)
 roiManager("measure")
 
 // Distinguish between transfected and untransfected cells
