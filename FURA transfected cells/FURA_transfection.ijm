@@ -16,8 +16,22 @@
 run("Clear Results");
 roiManager("reset");
 open(Time_series);
-measurement_title_380 = getTitle();
-measurement_title_340 = replace(measurement_title_380, "C=1", "C=0");
+Stack.getDimensions(width, height, channels, slices, frames);
+
+if (channels > 1) {
+	run("Split Channels");
+	measurement_title_380 = getTitle();
+	measurement_title_340 = replace(measurement_title_380, "C2", "C1");
+	rename(substring(measurement_title_380,3,lengthOf(measurement_title_380))+" - C=1");
+	measurement_title_380 = getTitle();
+	rename(substring(measurement_title_340,3,lengthOf(measurement_title_340))+" - C=0");
+	measurement_title_340 = replace(measurement_title_380, "C=1", "C=0");
+} 
+else {
+	measurement_title_380 = getTitle();
+	measurement_title_340 = replace(measurement_title_380, "C=1", "C=0");
+}
+
 open(mCherry);
 mCherry_title = getTitle();
 File.makeDirectory(Folder_results+"/ROIs/");

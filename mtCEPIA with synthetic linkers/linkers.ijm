@@ -1,10 +1,10 @@
 // @File (style = "open") Time_series
-// @File (style = "open") mCherry
+// @File (style = "open") RFP_snap
 // @File (style = "directory") Folder_results
 // @int BG_rolling_ball_radius
 
 
-// This program finds ROIs based on an mCherry signal.
+// This program finds ROIs based on RFP signal.
 //
 // Usage:
 // * Run in FIJI (www.fiji.sc)
@@ -17,9 +17,8 @@ run("Clear Results");
 roiManager("reset");
 open(Time_series);
 measurement_title = getTitle();
-print(measurement_title);
-open(mCherry);
-mCherry_title = getTitle();
+open(RFP_snap);
+RFP_title = getTitle();
 File.makeDirectory(Folder_results+"/ROIs/");
 File.makeDirectory(Folder_results+"/Multi_measure/");
  
@@ -31,18 +30,16 @@ for ( i = 0; i < window_titles.length; i++ ) {
 }
 
 // Find ROIs
-selectWindow(mCherry_title);
+selectWindow(RFP_title);
 run("Duplicate...", " ");
 setOption("ScaleConversions", true);
 run("8-bit");
 run("Convolve...", "text1=[-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 24 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n] normalize");
 run("Gaussian Blur...", "sigma=4");
-run("Enhance Contrast...", "saturated=20");
-setAutoThreshold("Huang dark");
+setAutoThreshold("MaxEntropy dark");
 setOption("BlackBackground", true);
 run("Convert to Mask");
 run("Fill Holes");
-run("Watershed");
 run("Analyze Particles...", "size=50-Infinity exclude add");
 
 // Let user do quality control of ROIs
@@ -51,7 +48,7 @@ waitForUser("Please adapt ROIs if necessary. When finished press OK.");
 
 // Measure results
 roiManager("deselect");
-roiManager("Save", Folder_results+"/ROIs/"+mCherry_title+".zip");
+roiManager("Save", Folder_results+"/ROIs/"+RFP_title+".zip");
 run("Set Measurements...", "mean display redirect=None decimal=3");
 selectWindow(measurement_title);
 roiManager("multi measure")
