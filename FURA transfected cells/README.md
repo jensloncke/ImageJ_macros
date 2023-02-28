@@ -2,7 +2,7 @@
 
 ## Purpose of this script
 This folder contains an ImageJ macro that semi-automates **single-cell selection** based on fluorescence of a **genetically encoded dye** and data acquisition from raw **FURA-2 fluorescence microcopy data (2 channels)**, excited at 340nm and 380nm and acquired at 510nm.
-Images were acquired using a Nikon TI2-E microscope and the NIS elements software. This macro requires one single acquisition .nd2 file for cell selection and one two channel .nd2 input file.
+Images for testing this macro were acquired using a Nikon TI2-E microscope and the NIS elements software. This macro requires one single acquisition .nd2 file for cell selection and one two channel .nd2 input file.
 
 ## How to operate this macro
 
