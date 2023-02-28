@@ -20,7 +20,6 @@ run("Clear Results");
 roiManager("reset");
 open(Time_series);
 title_380 = getTitle();
-print(title_380);
 title_340 = replace(title_380, "C=2", "C="+Channel_340);
 MT_title = replace(title_380, "C=2", "C="+Channel_MT);
 title_380 = replace(title_380, "C=2", "C="+Channel_380);
