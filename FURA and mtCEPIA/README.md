@@ -1,7 +1,7 @@
-# FURA transfected cells
+# FURA and mtCEPIA
 
 ## Purpose of this script
-This folder contains an ImageJ macro that semi-automates **single-cell selection** based on fluorescence of a **genetically encoded dye** and data acquisition from raw **FURA-2 fluorescence microcopy data (2 channels)**, excited at 340nm and 380nm and acquired at 510nm.
+This folder contains an ImageJ macro that semi-automates **single-cell selection** based on fluorescence of a **genetically encoded protein or a dye** and simultaneous data acquisition from raw **FURA-2 fluorescence microcopy data (2 channels)**, as well as an additional channel for the mitochondrial stain (typically red or green).
 Images for testing this macro were acquired using a Nikon TI2-E microscope and the NIS elements software. This macro requires one single acquisition .nd2 file for cell selection and one two channel .nd2 input file.
 
 ## How to operate this macro
@@ -9,10 +9,13 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
 * Run the macro
 * Specify the required parameters
   * Time_series: path to your FURA-2 .nd2 measurement
-  * MCherry: path to your single acquisition of transfected cells
+  * 340 channel: channel of 340nm signal
+  * 380 channel: channel of 380nm signal
+  * Mito channel: channel of mitochondrial signal
   * Folder_results: path to your output folder
   * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagejdocu.list.lu/gui/process/subtract_background#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
-![2023-01-09 (2)](https://user-images.githubusercontent.com/38840043/211395430-6718ef0c-4448-44c5-bd25-c84e05e43831.png)
+  * Transfection_RFU_cutoff: threshold of absolute fluorescence intensity of the final frame of acquisition of a ROI below which the cell is considered untransfected or unstained.
+![image](https://user-images.githubusercontent.com/38840043/222252583-43135d92-6256-4897-a088-e3e1742a7c8b.png)
 * Press OK
 * Verify whether thresholded ROIs require adaptation through user intervention
 * When finished, press OK
