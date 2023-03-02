@@ -30,7 +30,8 @@ for ( i = 0; i < window_titles.length; i++ ) {
 
 // Find ROIs
 selectWindow(CEPIA_title);
-run("Duplicate...", " ");
+run("Duplicate...", "duplicate");
+run("Z Project...", "projection=[Sum Slices]");
 setOption("ScaleConversions", true);
 run("8-bit");
 run("Convolve...", "text1=[-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 24 -1 -1\n-1 -1 -1 -1 -1\n-1 -1 -1 -1 -1\n] normalize");

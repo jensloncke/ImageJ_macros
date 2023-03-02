@@ -2,7 +2,7 @@
 
 ## Purpose of this script
 This folder contains an ImageJ macro that semi-automates **single-cell selection** based on fluorescence of a **Ca2+ indicator** and simultaneous data acquisition from raw **Fluo-4 fluorescence microcopy data (1 channel)**, as well as an additional channel for the mitochondrial stain (typically red or green).
-The ROIs created by this macro are based on the cyosolic Ca2+ sensor. Images for testing this macro were acquired using a Nikon TI2-E microscope and the NIS elements software. This macro requires one single acquisition .nd2 file for cell selection and one two channel .nd2 input file.
+The ROIs created by this macro are based on the cyosolic Ca2+ sensor. Images for testing this macro were acquired using a Nikon TI2-E microscope and the NIS elements software. This macro requires a two channel .nd2 input file.
 
 ## How to operate this macro
 
