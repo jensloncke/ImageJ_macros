@@ -13,7 +13,7 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
   * 380 channel: channel of 380nm signal
   * Mito channel: channel of mitochondrial signal
   * Folder_results: path to your output folder
-  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagejdocu.list.lu/gui/process/subtract_background#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
+  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagej.nih.gov/ij/docs/menus/process.html#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
   * Transfection_RFU_cutoff: threshold of absolute fluorescence intensity of the final frame of acquisition of a ROI below which the cell is considered untransfected or unstained.
 ![image](https://user-images.githubusercontent.com/38840043/222252583-43135d92-6256-4897-a088-e3e1742a7c8b.png)
 * Press OK

@@ -11,7 +11,7 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
   * Time_series: path to your single channel .nd2 measurement
   * mCherry: path to your single acquisition of transfected cells
   * Folder_results: path to your output folder
-  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagejdocu.list.lu/gui/process/subtract_background#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
+  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagej.nih.gov/ij/docs/menus/process.html#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
 ![image](https://user-images.githubusercontent.com/38840043/221667167-c4f7dd06-cd01-4e68-84e9-5e6940e82806.png)
 * Press OK
 * Verify whether thresholded ROIs require adaptation through user intervention

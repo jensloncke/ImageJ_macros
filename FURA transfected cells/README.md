@@ -11,7 +11,7 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
   * Time_series: path to your FURA-2 .nd2 measurement
   * MCherry: path to your single acquisition of transfected cells
   * Folder_results: path to your output folder
-  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagejdocu.list.lu/gui/process/subtract_background#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
+  * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagej.nih.gov/ij/docs/menus/process.html#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
 ![2023-01-09 (2)](https://user-images.githubusercontent.com/38840043/211395430-6718ef0c-4448-44c5-bd25-c84e05e43831.png)
 * Press OK
 * Verify whether thresholded ROIs require adaptation through user intervention
