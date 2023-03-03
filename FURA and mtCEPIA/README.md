@@ -15,6 +15,8 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
   * Folder_results: path to your output folder
   * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagej.nih.gov/ij/docs/menus/process.html#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
   * Transfection_RFU_cutoff: threshold of absolute fluorescence intensity of the final frame of acquisition of a ROI below which the cell is considered untransfected or unstained.
+*The Bio-Formats plugin will prompt the import window. Select 'Hyperstack' as stack viewer and tick 'Split channels'. If you want to prevent this window from opening in the future, activate the windowless version of Bio-Formats in ImageJ.
+![image](https://user-images.githubusercontent.com/38840043/222672367-9e25e26e-95ce-48be-aa54-545bd6a490df.png)
 ![image](https://user-images.githubusercontent.com/38840043/222252583-43135d92-6256-4897-a088-e3e1742a7c8b.png)
 * Press OK
 * Verify whether thresholded ROIs require adaptation through user intervention

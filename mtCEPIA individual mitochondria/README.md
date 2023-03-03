@@ -12,6 +12,8 @@ Images for testing this macro were acquired using a Nikon TI2-E microscope and t
   * mtCEPIA channel: channel of mitochondrial signal
   * Folder_results: path to your output folder
   * BG_rolling_ball_radius: radius of the **largest object** in your sample for background subtraction. For more information see: https://imagej.nih.gov/ij/docs/menus/process.html#:~:text=The%20Rolling%20Ball%20Radius%20is,the%20image%20is%20too%20uneven.
+*The Bio-Formats plugin will prompt the import window. Select 'Hyperstack' as stack viewer and tick 'Split channels'. If you want to prevent this window from opening in the future, activate the windowless version of Bio-Formats in ImageJ.
+![image](https://user-images.githubusercontent.com/38840043/222672367-9e25e26e-95ce-48be-aa54-545bd6a490df.png)
 ![image](https://user-images.githubusercontent.com/38840043/222538953-c83ab015-8350-4f29-b48a-d087dea753d9.png)
 * Press OK
 * Verify whether thresholded ROIs require adaptation through user intervention
