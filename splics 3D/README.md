@@ -1,7 +1,7 @@
 # splics 3D
 
 ## Purpose of these scripts
-This folder contains a script for **single channel** Z-stack confocal acquisitions, of cells expressing the MAM-sensor **SPLICS**. The 'splics 3D' script was designed to quantify ER-mitochondrial contact volume and numer of contact sites as well as whole cell volume on a single-cell basis. The macro requires a single channel .lsm Z-stack file.
+This folder contains a script for **single channel** Z-stack confocal acquisitions, of cells expressing the MAM-sensor **SPLICS**. The 'splics 3D' script was designed to quantify ER-mitochondrial contact volume and numer of contact sites as well as whole cell volume on a single-cell basis. The macro requires a single channel .lsm Z-stack file. This macro was also uploaded to the splics repository at: https://github.com/titocali1/Quantification-Plugins 
 
 To run this macro the VolumeJ plugin is used to 3D render from Z-stack slices. Install from: http://www.cyto.purdue.edu/cdroms/micro2/content/software/volumej.htm .
 The Voxel Counter plugin is used to calculate cell volumes: https://imagej.nih.gov/ij/plugins/voxel-counter.html .
