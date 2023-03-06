@@ -1,7 +1,7 @@
 # PM and mito 3D
 
 ## Purpose of these scripts
-This folder contains a collection of scripts for **two channel** Z-stack confocal acquisitions, where the **plasma membrane** is stained in one channel (e.g. with CellMask plasma membrane orange stain). The 'PM and mito 3D' script was designed to quantify mitochondrial volume and whole cell volume on a single-cell basis.
+This folder contains a collection of scripts for **two channel** Z-stack confocal acquisitions, where the **plasma membrane** is stained in one channel (e.g. with CellMask plasma membrane orange stain) and the **mitochondria** are stained in another channel (e.g. with Mitotracker green). The 'PM and mito 3D' script was designed to quantify mitochondrial volume and whole cell volume on a single-cell basis.
 The 'PM mito contact' script was tailored for quantification of quantifying the contact between the plasma membrane and mitochondria. Images for testing this macro were recorded on a Zeiss Axiovert 100M confocal microscope
 
 ## How to operate PM and mito 3D
