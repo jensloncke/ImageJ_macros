@@ -46,7 +46,7 @@ function analyze_channel(w) {
 
 function process_cell(i) {
 	// Let user define slice range
-	waitForUser("ROI "+i+ ": Please navigate to first slice. When finished press OK.");
+	waitForUser("ROI "+i+1+ ": Please navigate to first slice. When finished press OK.");
 	first_slice = getSliceNumber();
 	waitForUser("Please navigate to last slice. When finished press OK.");
 	last_slice = getSliceNumber();
@@ -74,7 +74,7 @@ function process_cell(i) {
 	run("Convert to Mask");
 	run("Watershed");
 	run("Analyze Particles...", "  summarize");
-	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+".csv");
+	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+1+".csv");
 	selectWindow(substack);
 	setAutoThreshold("Otsu dark");
 	run("Voxel Counter");
