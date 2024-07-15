@@ -14,7 +14,7 @@
 open(stack);
 File.makeDirectory(Folder_results+"/ROIs/");
 File.makeDirectory(Folder_results+"/Measure/");
-title = getTitle();
+title = getTitle();
 
 // Let user define ROI
 setTool("freehand");
@@ -22,22 +22,27 @@ waitForUser("Please define cell ROIs and press 't'. When finished press OK.");
 roiManager("Save", Folder_results+"/ROIs/"+title+".zip");
 
 nROIs = roiManager("count");
-window_titles = getList("image.titles");
-if (window_titles.length > 1) {
+
+Stack.getDimensions(width, height, channels, slices, frames);
+if (channels > 1) {
 	run("Split Channels");
-	for ( w = 0; w < window_titles.length; w++ ) {
-		selectWindow(window_titles[w]);
-	
-		analyze_channel(w);	
-	}
-} else {
-	for ( i = 0; i < nROIs; i++) {
-			process_cell(i);
-		}	
-}
+	window_title = "C1-"+title;
+	selectWindow(window_title);
+	analyze_channel();
+};
+
+else {
+	selectWindow(title);
+	rename("C1-"+title);
+	window_title = getTitle();
+	analyze_channel();
+};
 
 
-function analyze_channel(w) {
+
+
+
+function analyze_channel() {
 	for ( i = 0; i < nROIs; i++) {
 			process_cell(i);
 		}
@@ -74,16 +79,14 @@ function process_cell(i) {
 	run("Convert to Mask");
 	run("Watershed");
 	run("Analyze Particles...", "  summarize");
-	saveAs("Results", Folder_results+"/Measure/"+title+"_cell"+i+1+".csv");
+	saveAs("Results", Folder_results+"/Measure/"+window_title+"_cell"+i+1+".csv");
 	selectWindow(substack);
 	setAutoThreshold("Otsu dark");
 	run("Voxel Counter");
 	waitForUser("Results OK?");
-	selectWindow(title);
+	selectWindow(window_title);
 	close("\\Others");
-	selectWindow("Results"); 
-	run("Close");
-	selectWindow(title+"_cell"+i+".csv");
+	selectWindow(window_title+"_cell"+i+1+".csv");
 	run("Close");
 
 }
