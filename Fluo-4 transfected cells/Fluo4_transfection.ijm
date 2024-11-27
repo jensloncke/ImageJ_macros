@@ -44,7 +44,7 @@ setOption("BlackBackground", true);
 run("Convert to Mask");
 run("Fill Holes");
 run("Watershed");
-run("Analyze Particles...", "size=200-Infinity add");
+run("Analyze Particles...", "size=100-Infinity add");
 
 
 // Let user do quality control of ROIs
