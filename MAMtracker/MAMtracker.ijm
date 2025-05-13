@@ -17,9 +17,16 @@ File.makeDirectory(Folder_results+"/Measure/");
 File.makeDirectory(Folder_results+"/Measure/intensity");
 
 title = getTitle();
-title = replace(title, "C=3", "C=2");
+title = replace(title, "C=2", "C=1");
 
 // Let user define ROI
+run("Duplicate...", "duplicate");
+run("Bandpass Filter...", "filter_large=40 filter_small=3 suppress=None tolerance=5 autoscale saturate");
+setAutoThreshold("Li dark");
+setOption("BlackBackground", true);
+run("Convert to Mask");
+run("Analyze Particles...", "size=100-Infinity add");
+
 setTool("freehand");
 waitForUser("Please define cell ROIs and press 't'. When finished press OK.");
 roiManager("Save", Folder_results+"/ROIs/"+title+".zip");
@@ -78,6 +85,7 @@ function process_cell(i) {
 
 // Close everything
 roiManager("reset");
+close("Results");
 close("*");
 
 

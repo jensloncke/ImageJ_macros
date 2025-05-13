@@ -16,9 +16,9 @@ open(stack);
 File.makeDirectory(Folder_results+"/ROIs/");
 File.makeDirectory(Folder_results+"/Measure/");
 title = getTitle();
-BF = getTitle();
-NUC = replace(BF, "C=2", "C=1");
-PI_red = replace(BF, "C=2", "C=0");
+PI_red = title;
+NUC = replace(PI_red, "C=2", "C=1");
+BF = replace(PI_red, "C=2", "C=0");
 
 // Subtract background
 window_titles = getList("image.titles");
