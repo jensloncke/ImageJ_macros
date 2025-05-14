@@ -50,12 +50,12 @@ selectWindow(title_380);
 setSlice(1);
 roiManager("save selected", Folder_results+"/ROIs/"+title_380+".zip"); 
 roiManager("multi measure");
-saveAs("Results", Folder_results+"/Multi_measure/"+title_380+"_FURA_380.csv");
+saveAs("Results", Folder_results+"/Multi_measure/"+title_380+"_380.csv");
 run("Clear Results");
 selectWindow(title_340);
 setSlice(1);
 roiManager("multi measure");
-saveAs("Results", Folder_results+"/Multi_measure/"+title_340+"_FURA_340.csv");
+saveAs("Results", Folder_results+"/Multi_measure/"+title_340+"_340.csv");
 
 // Close everything
 roiManager("reset");
